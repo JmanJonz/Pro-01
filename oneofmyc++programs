@@ -1,0 +1,83 @@
+/*
+Project: Lab 16
+File: lab 16
+Purpose: practice programing
+Author: Ammon Jones
+Date: December 12 2020
+*/
+
+// Include
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <fstream>
+#include <cstring>
+#include <cctype>
+using namespace std;
+
+// function prototypes
+int wordCount(char*);
+
+// function
+/*
+Purpose: count the nubmer of words that that a user inputs into a string
+Input: string of characters
+Output: The number of words
+*/
+int main()
+{
+	// define variables/ arrays needed for this function
+	int num_words = 0;
+	const int size = 1000;
+	char string[size];
+
+	cout << "This program allows you to enter "
+		<< "a sentence and then tells you how many words it has\n";
+
+	//prompt user to input a sentence
+	cout << "Enter a sentence: ";
+
+	//enter the sentence into the c-string
+	cin.getline(string, size);
+
+	//get the number of words from a sentence by calling wordCount
+	num_words = wordCount(string);
+
+	//output the number of words on the screen
+	cout << "The number of words that were entered is: " << num_words;
+
+	return 0;
+}
+/*
+* Function: wordCount
+* Purpose: count the number of words contained in a string
+* receives: pointer to a c-string
+* returns: number of words in the string
+* input:
+*output:
+*/
+int wordCount(char* stringin)
+{
+	// Define the variables to be used
+	int count = 0;
+	int i = 0;
+
+	if (stringin[0] != 0 && count < 1)
+		count++;
+	//loop that counts the number of words in a string
+	while (stringin[i] != 0)
+	{
+		if (stringin[i] == ' ' )
+		{
+			//add one word
+			count++;
+		}
+
+		//incriment the index
+		i++;
+	}
+
+	
+	//return the numbers of words
+	return count;
+}
